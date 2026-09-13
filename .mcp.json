@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mailchimp": {
+      "command": "python3",
+      "args": ["${PLUGIN_ROOT}/scripts/mailchimp_mcp.py"],
+      "env": {
+        "MAILCHIMP_API_KEY": "${MAILCHIMP_API_KEY}",
+        "MAILCHIMP_SERVER_PREFIX": "${MAILCHIMP_SERVER_PREFIX}"
+      }
+    }
+  }
+}
