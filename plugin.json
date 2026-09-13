@@ -1,0 +1,24 @@
+{
+  "name": "mailchimp-roca",
+  "version": "0.1.0",
+  "description": "Manage ROCA Mailchimp audiences, contacts, tags, campaigns, scheduling, and reports.",
+  "author": {
+    "name": "ROCA Ind. Machinery"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ROCA Mailchimp",
+    "shortDescription": "Manage ROCA audiences and campaigns.",
+    "longDescription": "Connects Codex to Mailchimp for audience hygiene, permission-aware contact management, tags, campaign drafts, scheduling, sending, and performance reporting.",
+    "developerName": "ROCA Ind. Machinery",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write", "Reporting"],
+    "defaultPrompt": [
+      "Show the status of our Mailchimp campaigns.",
+      "Create a draft campaign for the right segment.",
+      "Check audience health and recent unsubscribes."
+    ],
+    "brandColor": "#F97316"
+  },
+  "mcpServers": "./.mcp.json"
+}
