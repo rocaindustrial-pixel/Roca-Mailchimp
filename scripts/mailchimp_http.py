@@ -8,6 +8,7 @@ from urllib.parse import parse_qs
 
 import uvicorn
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 from mailchimp_mcp import call
 
@@ -21,6 +22,19 @@ mcp = FastMCP(
     ),
     stateless_http=True,
     json_response=True,
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[
+            "roca-mailchimp.onrender.com",
+            "roca-mailchimp.onrender.com:*",
+            "127.0.0.1:*",
+            "localhost:*",
+        ],
+        allowed_origins=[
+            "https://chatgpt.com",
+            "https://www.chatgpt.com",
+        ],
+    ),
 )
 
 
@@ -142,4 +156,3 @@ app = QueryTokenMiddleware(mcp.streamable_http_app())
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", "8000")))
-
