@@ -42,7 +42,21 @@ skills/
 .mcp.json
 ```
 
-## Configuration
+## Remote deployment for ChatGPT
+
+The included `render.yaml` deploys a Streamable HTTP MCP endpoint on Render.
+Configure `MAILCHIMP_API_KEY` as a secret in Render. Render generates
+`ROCA_MCP_ACCESS_TOKEN`; use the private connector endpoint in this form:
+
+```text
+https://YOUR-SERVICE.onrender.com/mcp?token=YOUR_GENERATED_TOKEN
+```
+
+In ChatGPT developer mode, create an app with **No Authentication**, because the
+private endpoint URL already carries the generated access token. Treat that URL
+as a secret. For public or multi-user distribution, replace this mechanism with OAuth.
+
+## Local configuration
 
 The plugin requires the following environment variable:
 
@@ -60,9 +74,9 @@ Never commit API keys or other credentials to GitHub.
 
 ## Status
 
-Development version `0.1.0`.
+Development version `0.2.0`.
 
-The plugin package and Mailchimp MCP server are complete. Marketplace registration and local installation are required before use in ChatGPT or Codex.
+The plugin package includes both local stdio and remote Streamable HTTP MCP entry points.
 
 ## Developer
 

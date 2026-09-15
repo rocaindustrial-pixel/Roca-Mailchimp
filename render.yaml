@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: roca-mailchimp-mcp
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/mailchimp_http.py
+    autoDeploy: true
+    envVars:
+      - key: MAILCHIMP_API_KEY
+        sync: false
+      - key: MAILCHIMP_SERVER_PREFIX
+        sync: false
+      - key: ROCA_MCP_ACCESS_TOKEN
+        generateValue: true
+
